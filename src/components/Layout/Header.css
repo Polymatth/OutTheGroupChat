@@ -1,0 +1,146 @@
+
+.header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 4px 0;
+}
+
+.header-subtitle {
+  color: var(--gray-500);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.financial-health {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.health-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.health-score {
+  position: relative;
+}
+
+.health-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.health-circle::before {
+  content: '';
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+}
+
+.health-number {
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+.notification-btn, .theme-toggle {
+  position: relative;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background-color: var(--card-bg);
+}
+
+.notification-btn:hover, .theme-toggle:hover {
+  background-color: var(--gray-100);
+  transform: translateY(-1px);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--danger-color);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 16px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .header-title {
+    font-size: 1.25rem;
+  }
+  
+  .financial-health {
+    order: -1;
+  }
+}
