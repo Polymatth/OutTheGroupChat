@@ -1,0 +1,38 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #c7cdd6;
+}
+
+.home_container {
+  text-align: center;
+}
+
+.home_title h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home_subtitle h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home_button button {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #667eea;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.home_button button:hover {
+  transform: scale(1.05);
+}
