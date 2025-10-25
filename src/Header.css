@@ -1,0 +1,49 @@
+/* src/components/Header.css */
+.header {
+  /* This positions the header at the top of the .home container */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 10; /* Ensures the header is on top of everything else */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header_logo h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo_icon {
+  margin-right: 8px;
+}
+
+.create_plan_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #38b2ac;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.create_plan_button:hover {
+  background-color: #2c9e97;
+}

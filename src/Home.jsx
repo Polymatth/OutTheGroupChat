@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -10,7 +11,9 @@ function Home() {
           <h1><span className="logo_icon">(LOGO)</span> OutTheGroupChat</h1>
         </div>
         <div className='home_nav_button'>
-          <button className="create_plan_button">Create a Plan</button>
+          <Link to="/login">
+             <button className="create_plan_button">Create a Plan</button> 
+          </Link>
         </div>
       </nav>
       <div className='home_container'>
@@ -25,7 +28,9 @@ function Home() {
         </div>
         
         <div className='home_button'>
-          <button>Start Planning for Free</button>
+           <Link to="/login">
+            <button>Start Planning for Free</button>
+          </Link>
         </div>
       </div>
     </div>

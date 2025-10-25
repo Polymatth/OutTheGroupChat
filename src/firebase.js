@@ -7,7 +7,7 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCtwL42ufB-9fDpIu3LXBYlCdUzGct8pzQ", //Hide this later
+  apiKey: " import.meta.env.FIREBASE_HIDE_API_KEY", //Hidden
   authDomain: "outthegroupchat1.firebaseapp.com",
   projectId: "outthegroupchat1",
   storageBucket: "outthegroupchat1.firebasestorage.app",
