@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,4 +28,5 @@ try {
 } catch (error) {
   console.warn('Analytics failed to initialize:', error);
 }
+export const db = getFirestore(app);
 export const auth = getAuth(app);

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "firebase": "^12.4.0",

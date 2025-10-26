@@ -8,6 +8,13 @@ import Header from './Header.jsx';
 import Home from './Home.jsx';
 import Login from './Login.jsx';
 import Plan from './Plan.jsx';
+import NewPlan from './NewPlan.jsx';
+import ShareLink from './ShareLink.jsx';
+import Respond from './Respond.jsx';
+import Responses from './Responses.jsx';
+import ThankYou from './ThankYou.jsx';
+
+
 import './App.css'; 
 
 function App() {
@@ -21,9 +28,23 @@ function App() {
           {/* Route for the login page */}
           <Route path="/login" element={<Login />} /> 
 
-          {/* Route for the plan page */}
-          <Route path="/plan" element={<Plan />} /> 
-          {/* Note: I changed "/Plan" to "/plan" to follow standard URL conventions (lowercase) */}
+          {/* Route for the travel plan page */}
+          <Route path="/plan" element={<Plan />} />
+          
+          {/* Route for the New Plan page */}
+          <Route path="/newplan" element={<NewPlan />} />
+          
+          {/* Route for the Share Link page */}
+          <Route path="/sharelink/:planId" element={<ShareLink />} />
+
+          {/* Route for the Responses page */}
+          <Route path="/responses" element={<Responses />} />
+
+          {/* Route for the Respond Page */}
+           <Route path="/respond/:userId/:planId" element={<Respond />} />
+
+           {/* Route for the Thank You Page */}
+           <Route path="/thankyou" element={<ThankYou />} />
         </Routes>
       </div>
     </Router>

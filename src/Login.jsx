@@ -1,5 +1,3 @@
-// src/Login.jsx
-
 import React, { useState } from 'react';
 import './Login.css';
 import { auth } from './firebase'; 
@@ -8,6 +6,8 @@ import {
   signInWithEmailAndPassword 
 } from "firebase/auth";
 import { useNavigate, Link } from 'react-router-dom';
+import {doc, getDoc, setDoc} from 'firebase/firestore';
+import { db } from './firebase';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -27,9 +27,15 @@ function Login() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        uid: user.uid
+      });
       navigate('/plan'); // Changed to navigate to plan page
     } catch (error) {
+      console.error("Error creating user document:", error);
       alert(error.message);
     }
   };
