@@ -1,0 +1,223 @@
+/* src/components/GeminiResponse.css */
+
+.gemini-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  padding: 3rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+}
+
+.gemini-container {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 700px;
+}
+
+.gemini-container h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  text-align: center;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  margin: 0.5rem 0 2rem 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.prompt-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prompt-textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.generate-button {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.generate-button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.generate-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.response-area {
+  margin-top: 2rem;
+}
+
+.response-area h3 {
+  color: #5d6d7e;
+  border-bottom: 1px solid #f0f3f4;
+  padding-bottom: 0.5rem;
+}
+
+.response-output {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 150px;
+  white-space: pre-wrap; /* Preserves line breaks and spaces */
+  line-height: 1.6;
+  color: #34495e;
+  transition: border-color 0.3s ease;
+}
+
+.response-output.loading {
+  border-color: #3498db;
+  animation: pulse 1.5s infinite;
+}
+
+.stats-section p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.prompt-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.prompt-section h4 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.ai-prompt {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #2c3e50;
+  line-height: 1.5;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.response-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.response-header h4 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.audio-button {
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.audio-button:hover {
+  background-color: #2980b9;
+}
+
+.audio-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.response-text {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  white-space: pre-wrap;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+.response-text.typing {
+  border-color: #3498db;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #34495e;
+  width: 10px;
+  height: 1.2rem;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+}

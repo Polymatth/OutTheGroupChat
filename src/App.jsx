@@ -13,6 +13,7 @@ import ShareLink from './ShareLink.jsx';
 import Respond from './Respond.jsx';
 import Responses from './Responses.jsx';
 import ThankYou from './ThankYou.jsx';
+import Summary from './Summary.jsx';
 
 
 import './App.css'; 
@@ -38,13 +39,16 @@ function App() {
           <Route path="/sharelink/:planId" element={<ShareLink />} />
 
           {/* Route for the Responses page */}
-          <Route path="/responses" element={<Responses />} />
+          <Route path="/responses/:planId" element={<Responses />} />
 
           {/* Route for the Respond Page */}
            <Route path="/respond/:userId/:planId" element={<Respond />} />
 
            {/* Route for the Thank You Page */}
            <Route path="/thankyou" element={<ThankYou />} />
+
+           {/* Route for the Summarize Page */}
+           <Route path="/summarize/:planId" element={<Summary />} />
         </Routes>
       </div>
     </Router>

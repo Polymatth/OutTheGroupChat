@@ -1,8 +1,8 @@
-import React, { use, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './Respond.css';
 import { auth } from './firebase';
-import {collection, addDoc} from 'firebase/firestore';
+import {doc, collection, addDoc, getDoc} from 'firebase/firestore';
 import { db } from './firebase';
 
 function Respond() {
@@ -10,19 +10,38 @@ function Respond() {
   const [selectedResponse, setSelectedResponse] = useState(null);
   // State for the user's notes
   const [notes, setNotes] = useState('');
-  
-  // Placeholder data that would normally come from the URL/API
-  const planDetails = {
-    name: "Summer Trip To Italy",
-    host: "Alice Johnson",
-    dates: "July 15th - July 22nd, 2026",
-    location: "Rome, Italy"
-  };
-
   const navigate = useNavigate();
+  const {userId, planId} = useParams();
+  const [plan, setPlan] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const userId = useParams().userId;
-  const planId = useParams().planId;
+  useEffect(() => {
+    const fetchPlan = async () => {
+      try {
+        // Fetch plan details from Firestore using userId and planId
+        // For now, we'll use placeholder data
+        const planRef = doc(db, "users", userId, "plans", planId);
+        const planSnap = await getDoc(planRef);
+        if (planSnap.exists()) {
+          setPlan(planSnap.data());
+        } else {
+          console.log("No such plan!");
+        }
+      } catch (error) {
+        console.error("Error fetching plan:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchPlan();
+  }, [userId, planId]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (!plan) {
+    return <div>Plan not found.</div>;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,13 +71,11 @@ function Respond() {
       <div className="respond-container">
         <div className="invitation-header">
           <p>You're invited to</p>
-          <h1>{planDetails.name}</h1>
+          <h1>{plan.planName}</h1>
         </div>
         
         <div className="plan-info">
-          <p><strong>🗓️ Dates:</strong> {planDetails.dates}</p>
-          <p><strong>📍 Location:</strong> {planDetails.location}</p>
-          <p><strong>✉️ From:</strong> {planDetails.host}</p>
+          <p><strong>📍 Location:</strong> {plan.location}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="response-form">

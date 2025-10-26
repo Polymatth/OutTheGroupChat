@@ -115,12 +115,31 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  position: relative;
 }
 
 .plan_card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.plan_card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.plan_card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(93, 173, 226, 0);
+  transition: background-color 0.2s ease;
+}
+
+.plan_card:hover::after {
+  background-color: rgba(93, 173, 226, 0.05);
 }
 
 .card_image {
