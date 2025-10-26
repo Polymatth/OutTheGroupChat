@@ -1,38 +1,117 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
 .home {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
-  background-color: #c7cdd6;
+  /* --- Replace this line --- */
+  background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/230725152449-01-group-friend-vacation-tips-top.jpg?c=16x9&q=w_800,c_fill'); 
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+
+.home_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.home_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.home_logo h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo_icon {
+    margin-right: 8px;
+}
+
+.home_nav_button .create_plan_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #38b2ac;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.home_nav_button .create_plan_button:hover {
+  background-color: #2c9e97;
 }
 
 .home_container {
   text-align: center;
+  max-width: 800px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
 }
 
-.home_title h1 {
-  font-size: 3rem;
+.home_title h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
   margin-bottom: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
 }
 
-.home_subtitle h2 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-  font-family: Arial, Helvetica, sans-serif;
+.home_subtitle p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
 }
 
 .home_button button {
-  padding: 12px 30px;
-  font-size: 1.2rem;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #667eea;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  background-color: #38b2ac;
+  color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .home_button button:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: #2c9e97;
 }
+
