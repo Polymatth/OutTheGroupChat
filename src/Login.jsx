@@ -53,7 +53,6 @@ function Login() {
           />
           <button type="submit" onClick={handleLogin}>Login</button>
           <button type="button" onClick={handleSignUp}>Create a new account</button>
-          
         </form>
       </div>
     </div>

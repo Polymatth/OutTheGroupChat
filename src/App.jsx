@@ -3,7 +3,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// 1. Import the correctly named components
+
+import Header from './Header.jsx';
 import Home from './Home.jsx';
 import Login from './Login.jsx';
 import Plan from './Plan.jsx';
@@ -12,12 +13,12 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App"> 
         <Routes>
           {/* Route for the home page */}
           <Route path="/" element={<Home />} />
 
-          {/* 2. Route for the login page, now using the correct component */}
+          {/* Route for the login page */}
           <Route path="/login" element={<Login />} /> 
 
           {/* Route for the plan page */}
