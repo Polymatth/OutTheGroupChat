@@ -50,7 +50,7 @@ function NewPlan() {
   };
 
   return (
-    <div>
+    <div className="new-plan-container">
       <h1 id="create">Create a New Travel Plan</h1>
       <form id="new-plan-questions" onSubmit={handleSubmit}>
         <label htmlFor="plan-name">Plan Name</label>

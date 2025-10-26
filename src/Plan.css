@@ -93,6 +93,11 @@ body {
   font-size: 1.2rem;
 }
 
+/* Remove underline from the Create New Plan button link */
+.page_header a {
+  text-decoration: none;
+}
+
 .search_container {
   margin-bottom: 2.5rem;
 }

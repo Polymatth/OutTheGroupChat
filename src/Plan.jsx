@@ -111,7 +111,7 @@ function Plan() {
           </div>
           <Link to="/newplan">
             <button className="create_plan_button">
-              <span className="plus_icon">+</span> Create New Plan
+              <span className="plus_icon"></span> Create New Plan
             </button>
           </Link>
         </div>

@@ -29,11 +29,13 @@ function Summary() {
     if (!data) return '';
 
     const responsesSummary = data.responses.map(r => 
-      `- ${r.name}: ${r.status}${r.notes ? ` (Note: ${r.notes})` : ''}`
+      `- ${r.name}: ${r.response}
+        Notes: "${r.notes || 'No additional notes provided'}"
+      `
     ).join('\n');
 
     const prompt = `
-Please analyze this travel plan and provide recommendations:
+Please analyze this travel plan and provide travel recommendations based on the location:
 
 PLAN DETAILS:
 Name: ${data.plan.planName}
@@ -50,17 +52,19 @@ RESPONSE STATISTICS:
 - Not Going: ${data.stats.notGoing}
 - Response Rate: ${data.stats.responseRate.toFixed(1)}%
 
-INDIVIDUAL RESPONSES:
+INDIVIDUAL RESPONSES AND NOTES:
 ${responsesSummary}
+
+Please consider all individual responses and their notes carefully in your analysis.
 
 Based on this information, please provide:
 1. A summary of the current plan status
-2. Suggestions for accommodating those who responded "Maybe"
-3. Recommendations for improving the plan
-4. Potential scheduling or budget adjustments based on responses
-5. Next steps for the plan organizer
+2. Recommendations for improving the plan
+3. Potential scheduling or budget adjustments based on responses
+4. Recommendations for activities suitable for the location and interests expressed in the notes
 
 Do so in a clear and concise manner. Friendly but professional. Keep emojis to a minimum. Please write in markdown format.
+Avoid the use of special characters like # or *. Make the response no more than 350 words
 `;
 
     return prompt.trim();
@@ -91,12 +95,14 @@ Do so in a clear and concise manner. Friendly but professional. Keep emojis to a
         };
 
         // Get all responses for this plan
-        const responsesRef = collection(db, 'plans', planId, 'responses');
+        const responsesRef = collection(db, 'users', user.uid, 'plans', planId, 'responses');
         const responsesSnapshot = await getDocs(responsesRef);
         const responses = responsesSnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         }));
+        
+        console.log('Fetched responses:', responses); // Debug log
 
         // Combine plan and responses data
         const combinedData = {
@@ -114,12 +120,22 @@ Do so in a clear and concise manner. Friendly but professional. Keep emojis to a
           responses: responses,
           stats: {
             totalResponses: responses.length,
-            going: responses.filter(r => r.status === 'Going').length,
-            maybe: responses.filter(r => r.status === 'Maybe').length,
-            notGoing: responses.filter(r => r.status === "Can't Go").length,
-            responseRate: responses.length / (plan.invitedCount || 1) * 100
+            going: responses.filter(r => r.response && r.response.toLowerCase() === 'going').length,
+            maybe: responses.filter(r => r.response && r.response.toLowerCase() === 'maybe').length,
+            notGoing: responses.filter(r => r.response && r.response.toLowerCase() === 'cant-go').length,
+            responseRate: (responses.length / (plan.invitedCount || 1)) * 100
           }
         };
+
+        // Debug logs
+        console.log('Plan data:', plan);
+        console.log('Stats:', combinedData.stats);
+        console.log('Response counts:', {
+          total: responses.length,
+          going: responses.filter(r => r.response && r.response.toLowerCase() === 'going').length,
+          maybe: responses.filter(r => r.response && r.response.toLowerCase() === 'maybe').length,
+          notGoing: responses.filter(r => r.response && r.response.toLowerCase() === 'cant-go').length,
+        });
 
         setPlanData(combinedData);
         // Generate and set the AI prompt
@@ -332,7 +348,7 @@ Do so in a clear and concise manner. Friendly but professional. Keep emojis to a
               <h3>Plan Summary: {planData.plan.planName}</h3>
               <div className="response-output">
                 <div className="stats-section">
-                  <p>Total Responses: {planData.stats.totalResponses} out of {planData.plan.invitedCount}</p>
+                  <p>Total Responses: {planData.stats.totalResponses} out of 5</p>
                   <p>Going: {planData.stats.going}</p>
                   <p>Maybe: {planData.stats.maybe}</p>
                   <p>Not Going: {planData.stats.notGoing}</p>

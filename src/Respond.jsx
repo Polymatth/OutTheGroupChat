@@ -8,8 +8,9 @@ import { db } from './firebase';
 function Respond() {
   // State to manage which response is selected ('going', 'maybe', 'cant-go')
   const [selectedResponse, setSelectedResponse] = useState(null);
-  // State for the user's notes
+  // State for the user's notes and name
   const [notes, setNotes] = useState('');
+  const [name, setName] = useState('');
   const navigate = useNavigate();
   const {userId, planId} = useParams();
   const [plan, setPlan] = useState(null);
@@ -58,8 +59,9 @@ function Respond() {
     const responsesRef = collection (db, "users", userId, "plans", planId, "responses")
     console.log(responsesRef);
     const responseDoc = await addDoc(responsesRef, {
-      name: "",
+      name: name,
       response: selectedResponse,
+      notes: notes,
       budget: "",
     });
     navigate('/thankyou');
@@ -79,6 +81,17 @@ function Respond() {
         </div>
 
         <form onSubmit={handleSubmit} className="response-form">
+          <label htmlFor="name" className="form-label">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name"
+            required
+            className="name-input"
+          />
+          
           <p className="form-label">Will you be there?</p>
           <div className="response-buttons">
             <button 
