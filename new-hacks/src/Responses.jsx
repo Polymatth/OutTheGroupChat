@@ -65,7 +65,6 @@ function Responses() {
         <div className="responses-list">
           {responses.map((response) => (
             <div key={response.id} className="response-card">
-              <img src={response.avatarUrl} alt={response.name} className="avatar" />
               <div className="user-info">
                 <h4>{response.name}</h4>
                 <p className="notes">"{response.notes}"</p>

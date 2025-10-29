@@ -50,7 +50,7 @@ function ShareLink() {
         </div>
 
         {/* A "Done" button to navigate back to the main plan page */}
-        <Link to = "/responses" className="done-button">
+        <Link to = "/plan" className="done-button">
           Done
         </Link>
       </div>

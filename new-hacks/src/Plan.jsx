@@ -16,7 +16,7 @@ const PlanCard = ({ plan }) => {
 
   return (
     <div className="plan_card" onClick={handleClick} style={{ cursor: 'pointer' }}>
-      <img src={plan.imageUrl} alt={plan.title} className="card_image" />
+      <img src = "https://cdn.britannica.com/14/94514-050-461B9A6D/Palm-trees-ocean-Bahamas-New-Providence-Island.jpg" alt={plan.title} className="card_image" />
       <div className="card_content">
         <h3>{plan.planName}</h3>
         <p className="card_location">
@@ -111,7 +111,7 @@ function Plan() {
           </div>
           <Link to="/newplan">
             <button className="create_plan_button">
-              <span className="plus_icon">+</span> Create New Plan
+              <span className="plus_icon"></span> Create New Plan
             </button>
           </Link>
         </div>

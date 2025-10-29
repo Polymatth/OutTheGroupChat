@@ -23,7 +23,7 @@
   font-weight: 700;
   color: #3498db; /* Blue logo text */
   margin: 0;
-}
+} 
 
 .header-create-button {
   background-color: #5dade2;
@@ -39,4 +39,9 @@
 
 .header-create-button:hover {
   background-color: #4a90e2;
+}
+
+/* Ensure no underlines on any links in the header */
+.header-content a {
+  text-decoration: none;
 }
