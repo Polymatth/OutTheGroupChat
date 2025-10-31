@@ -1,0 +1,107 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Using a vibrant, high-quality travel image for the background */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+
+/* This adds a dark overlay so the white text is readable, similar to the original image */
+.login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f0f4f8;
+  z-index: 1;
+}
+
+.login_container {
+  position: relative;
+  z-index: 2;
+  
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(10, 25, 47, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login_container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.login_container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login_container input {
+  padding: 14px 20px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f0f2f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.login_container input:focus {
+  outline: none;
+  border-color: #38b2ac;
+}
+
+.login_container button {
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Primary Login Button Style */
+.login_container button[type="submit"] {
+  background-color: #38b2ac; 
+  color: white;
+}
+
+.login_container button[type="submit"]:hover {
+  background-color: #2c9e97;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary Sign-up Button Style */
+.login_container button[type="signup"] {
+  background-color: transparent;
+  color: #f0f2f5;
+  border: 1px solid #f0f2f5;
+}
+
+.login_container button[type="signup"]:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
