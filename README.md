@@ -7,7 +7,9 @@
 **OutTheGroupChat** is a collaborative **AI-powered travel planner** that helps groups effortlessly organize trips — from budgeting and preferences to full itineraries and lodging — all in one place.
 
 Powered by **Gemini AI** and **Firebase**, the platform intelligently summarizes group interests, generates personalized itineraries, and keeps everyone aligned through **real-time collaboration**.
-
+---
+## Deployed App
+https://outthegroupchat1.web.app/ 
 ---
 
 ## ⚙️ Tech Stack
