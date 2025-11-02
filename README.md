@@ -112,9 +112,9 @@ Ensure you have the following installed:
 
 Built with ❤️ by:
 
-- **Jason T.** – [@github](https://github.com/Jason-Tan1)
+- **Jason T.** – [@Jason-Tan1](https://github.com/Jason-Tan1)
 - **Zahadad J.** – [@zdad24](https://github.com/zdad24)
-- **Daniel Y.** – [@github](https://github.com/DanielY-code)
+- **Daniel Y.** – [@DanielY-code](https://github.com/DanielY-code)
 - **Matthew M.** – [@Polymatth](https://github.com/Polymatth)
 
 ---
